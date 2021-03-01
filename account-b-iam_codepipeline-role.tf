@@ -26,12 +26,12 @@ resource "aws_iam_role_policy" "codepipeline-role-policy" {
     Statement : [
       {
         Action : "sts:AssumeRole",
-        Resource : "${aws_iam_role.codepipeline-codecommit-role.arn}",
+        Resource : aws_iam_role.codepipeline-codecommit-role.arn,
         Effect : "Allow"
       },
       {
         Action : "sts:AssumeRole",
-        Resource : "${aws_iam_role.codepipeline-codebuild-role.arn}",
+        Resource : aws_iam_role.codepipeline-codebuild-role.arn,
         Effect : "Allow"
       }
     ]

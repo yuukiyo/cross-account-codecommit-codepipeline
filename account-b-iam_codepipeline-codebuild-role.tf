@@ -30,7 +30,7 @@ resource "aws_iam_role_policy" "codepipeline-codebuild-role-policy" {
           "codebuild:StartBuild",
           "codebuild:StopBuild"
         ],
-        Resource : "${aws_codebuild_project.project.arn}",
+        Resource : aws_codebuild_project.project.arn,
         Effect : "Allow"
       },
       {

@@ -36,7 +36,7 @@ resource "aws_iam_role_policy" "codepipeline-codecommit-role-policy" {
         Action : [
           "s3:ListBucket",
         ],
-        Resource : "${aws_s3_bucket.codepipeline_bucket.arn}",
+        Resource : aws_s3_bucket.codepipeline_bucket.arn,
         Effect : "Allow"
       },
       {
@@ -47,7 +47,7 @@ resource "aws_iam_role_policy" "codepipeline-codecommit-role-policy" {
           "kms:ReEncrypt*",
           "kms:GenerateDataKey*"
         ],
-        Resource : "${aws_kms_key.codepipeline_key.arn}",
+        Resource : aws_kms_key.codepipeline_key.arn,
         Effect : "Allow"
       },
       {
@@ -58,7 +58,7 @@ resource "aws_iam_role_policy" "codepipeline-codecommit-role-policy" {
           "codecommit:GetUploadArchiveStatus",
           "codecommit:CancelUploadArchive"
         ],
-        Resource : "${aws_codecommit_repository.repository.arn}",
+        Resource : aws_codecommit_repository.repository.arn,
         Effect : "Allow"
       }
     ]

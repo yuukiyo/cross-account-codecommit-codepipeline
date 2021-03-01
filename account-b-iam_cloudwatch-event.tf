@@ -24,7 +24,7 @@ resource "aws_iam_role_policy" "cloudwatch-event-rule-update_codecommit_reposito
     Statement : [
       {
         Action : "codepipeline:StartPipelineExecution",
-        Resource : "${aws_codepipeline.pipeline.arn}",
+        Resource : aws_codepipeline.pipeline.arn,
         Effect : "Allow"
       }
     ]

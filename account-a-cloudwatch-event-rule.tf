@@ -6,7 +6,7 @@ resource "aws_cloudwatch_event_rule" "account-a-update_codecommit_repository" {
       "CodeCommit Repository State Change"
     ],
     resources : [
-      "${aws_codecommit_repository.repository.arn}"
+      aws_codecommit_repository.repository.arn
     ],
     source : [
       "aws.codecommit"

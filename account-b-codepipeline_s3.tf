@@ -49,8 +49,8 @@ resource "aws_s3_bucket_policy" "codepipeline_bucket" {
         Effect : "Allow",
         Principal : {
           AWS : [
-            "${aws_iam_role.codepipeline-codecommit-role.arn}",
-            "${aws_iam_role.codepipeline-codebuild-service-role.arn}",
+            aws_iam_role.codepipeline-codecommit-role.arn,
+            aws_iam_role.codepipeline-codebuild-service-role.arn,
         ] },
         Action : [
           "s3:Get*",
@@ -63,8 +63,8 @@ resource "aws_s3_bucket_policy" "codepipeline_bucket" {
         Effect : "Allow",
         Principal : {
           AWS : [
-            "${aws_iam_role.codepipeline-codecommit-role.arn}",
-            "${aws_iam_role.codepipeline-codebuild-service-role.arn}",
+            aws_iam_role.codepipeline-codecommit-role.arn,
+            aws_iam_role.codepipeline-codebuild-service-role.arn,
         ] },
         Action : "s3:ListBucket",
         Resource : aws_s3_bucket.codepipeline_bucket.arn,

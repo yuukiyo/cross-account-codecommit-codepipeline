@@ -31,8 +31,8 @@ resource "aws_kms_key" "codepipeline_key" {
         Effect : "Allow",
         Principal : {
           AWS : [
-            "${aws_iam_role.codepipeline-codecommit-role.arn}",
-            "${aws_iam_role.codepipeline-codebuild-service-role.arn}",
+            aws_iam_role.codepipeline-codecommit-role.arn,
+            aws_iam_role.codepipeline-codebuild-service-role.arn,
         ] },
         Action : [
           "kms:Decrypt",
